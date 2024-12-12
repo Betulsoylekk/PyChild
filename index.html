@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="#">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun NLP Quiz for Kids!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #604b64;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #caaaaa;
+        }
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .answers {
+            list-style-type: none;
+            padding: 0;
+        }
+        .answer {
+            background-color: #fff;
+            border: 1px solid #ed6fc3;
+            padding: 10px 20px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+          
+        .answer:hover {
+            background-color: #c1ffc1;
+        }
+        #submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #c14aca;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #submit-btn:hover {
+            background-color: #6ba2cc;
+        }
+        #highest-score {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.2em;
+            color: hwb(300 40% 28%);
+          }
+        footer {
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: hwb(300 4% 45%);
+
+
+        }
+
+
+
+
+  
+
+        
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Fun NLP Quiz!</h1>
+    <p class="question">Let's have fun learning about language and computers! 🧠✨</p>
+
+    <form id="quiz-form" method="POST" action="/submit_answers">
+        <div class="question">
+            <strong>What does "NLP" stand for in the world of computers?</strong>
+        </div>
+        <ul class="answers">
+            <li><input type="radio" name="q1" value="a"> a) Nice Little Puppies</li>
+            <li><input type="radio" name="q1" value="b"> b) Natural Language Processing</li>
+            <li><input type="radio" name="q1" value="c"> c) Neat Little Projects</li>
+        </ul>
+
+        <div class="question">
+            <strong>Which of these is used to analyze text data?</strong>
+        </div>
+        <ul class="answers">
+            <li><input type="radio" name="q2" value="a"> a) NLP</li>
+            <li><input type="radio" name="q2" value="b"> b) AI (Artificial Intelligence)</li>
+            <li><input type="radio" name="q2" value="c"> c) Database Management</li>
+        </ul>
+
+        <div class="question">
+            <strong>Which animal is often used to represent a chatbot?</strong>
+        </div>
+        <ul class="answers">
+            <li><input type="radio" name="q3" value="a"> a) Cat</li>
+            <li><input type="radio" name="q3" value="b"> b) Dog</li>
+            <li><input type="radio" name="q3" value="c"> c) Parrot</li>
+        </ul>
+
+        <div class="question">
+            <strong>What is a computer program that understands and responds to text called?</strong>
+        </div>
+        <ul class="answers">
+            <li><input type="radio" name="q4" value="a"> a) Text Processor</li>
+            <li><input type="radio" name="q4" value="b"> b) NLP Model</li>
+            <li><input type="radio" name="q4" value="c"> c) Language Machine</li>
+        </ul>
+
+        <div class="question">
+            <strong>What helps a computer translate spoken language into text?</strong>
+        </div>
+        <ul class="answers">
+            <li><input type="radio" name="q5" value="a"> a) Speech Recognition</li>
+            <li><input type="radio" name="q5" value="b"> b) Image Recognition</li>
+            <li><input type="radio" name="q5" value="c"> c) Text-to-Speech</li>
+        </ul>
+
+        <button type="submit" id="submit-btn">Submit Answer</button>
+    </form>
+
+    <p id="highest-score"></p>
+
+    <footer>
+        <p>Created by: Betül SOYLEK </p>
+        <p>Software developer who likes coding and teaching</p>
+    </footer>
+
+    <script>
+        // Display highest score on page load
+        let highestScore = localStorage.getItem('highestScore') || 0;
+        document.getElementById('highest-score').textContent = `Your highest score: ${highestScore}`;
+    </script>
+
+</body>
+</html>

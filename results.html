@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #673AB7; /* Purple */
+        }
+
+        .result-container {
+            border: 2px solid #673AB7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #E6E6FA; /* Light Purple */
+        }
+
+        .result-container h2 {
+            color: #673AB7;
+        }
+
+        .result-container p {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #6495ED; /* Blue */
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        .redirect-button {
+            background-color: #673AB7;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz Results</h1>
+
+    <div class="result-container">
+        <h2>Your Score: {{ total_score }}/100</h2>
+        {% if total_score >= 80 %}
+            <p>Wow, you're a quiz whiz! Keep up the great work!</p>
+        {% elif total_score >= 60 %}
+            <p>You did a great job! Just a little more practice and you'll be a quiz master!</p>
+        {% elif total_score >= 40 %}
+            <p>You're on the right track! Keep trying and you'll improve.</p>
+        {% else %}
+            <p>Don't worry, everyone makes mistakes. Keep practicing and you'll get better!</p>
+        {% endif %}
+    </div>
+
+    <div class="balloon-container"></div>
+
+    <button class="redirect-button" onclick="redirectToHomePage()">Try Again?</button>
+
+
+        
+</body>
+</html>
